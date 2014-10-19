@@ -22,11 +22,15 @@ git fetch [remote-name]		Get data from remote projects (Note: Does not automatic
 git pull	Fetch data from the clone source, and merges into your branch.
 
 git push [remote-name] [branch-name]	Pushes your local branch [branch-name] to the remote server [remote-name]. (Note: If someone else has pushed to the remote before you, then you need to pull and merge their work into your branch first before trying to push it back up)
+git push [remote-name]
+	[tag-name]	Pushes specified tag to remote server
+	--tags		Pushes all tags to remote server
 
 git config	Changes the config file of the Git repos.
   --global	Changes the local user's config file
   core.name	Edit the <name> field of the config
   core.email	Edit the <email> field of the config
+  alias.[alias] [commandname]	Creates an alias for specified command
 
 git rm		Remove a file from both the local directory and the git repo.
   -f		Force remove a file, even if it has uncommitted changes.
@@ -55,3 +59,13 @@ gitk		A GUI for visualizing git log data
 git reset HEAD <filename>	Unstages a file in the staging area. Still remains modified.
 
 git checkout -- <filename>	Removes  modifications to a file. Basically reclones the file from the repo.
+
+git tag		Lists available tags
+  [tagname]		(with no other arguments) Creates a lightweight tag, with only the checksum of the commit
+  -1 '[string]'		Lists only tags with a particular pattern
+  -a [tagname]		Creates annotated tag, opens editor for tag info
+  -m '[string]'		Specifies tagging message without opening the editor
+  -s [tagname]		Use instead of -a to create a GPG-signed tag
+  [commit-checksum]	Tags the specified commit instead of the latest commit
+
+git show [tagname]	View tag data for a specied tag
