@@ -1,3 +1,7 @@
 #Files for Git to ignore
 
+#Ignore compiled class files
 *.class
+
+#Ignore all temp files created by the editor
+*~
