@@ -58,7 +58,26 @@ gitk		A GUI for visualizing git log data
 
 git reset HEAD <filename>	Unstages a file in the staging area. Still remains modified.
 
-git checkout -- <filename>	Removes  modifications to a file. Basically reclones the file from the repo.
+git branch 
+  [branch-name]		Creates a new branch at the current commit. Does not switch HEAD to the new branch.
+  -d [branch-name]	Deletes branch (probably after merging)
+
+git checkout 
+  -- <filename>		Removes  modifications to a file. Basically reclones the file from the repo.
+  [branch-name]		Switches to specified branch
+  -b [branch-name]	Creates and switches to specified branch. Combines commands 'git branch [branchname]' and 'git checkout [branchname]'.
+
+git merge 
+  [branch-name]		Merges branch [branch-name] into your current branch. Note that you probably want to be IN the master branch when you do this, and that [branch-name] is the name of the branch to merge. Note that you probably want to remove the branch afterwards by running 'git branch -d [branch-name]'.
+			  In case of a merge conflict, 'git status' tell you which files have issues, and the specific lines in those files are marked with
+			  <<<<<<< HEAD
+			  ... <lines from HEAD branch> ...
+			  =======
+			  ... <lines from merged branch> ...
+			  >>>>>>> [merge-branch-name]
+  --abort		Aborts the merge if there is a conflict
+
+git mergetool	A graphical merge tool for managing merge conflicts
 
 git tag		Lists available tags
   [tagname]		(with no other arguments) Creates a lightweight tag, with only the checksum of the commit
