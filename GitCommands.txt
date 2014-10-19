@@ -1,0 +1,57 @@
+git add		Stage an modified file
+
+git status	View current status about unstaged and staged changes
+
+git diff	View differences between modified and staged files
+  --staged	View differences between staged and commited files
+
+git commit	Commit all staged changes. Opens editor to insert commit message. Cancels commit if no message is entered.
+  -a		Commits all changes, whether staged or unstaged.
+  -m 'message'	Avoid editor. Insert commit message inline with the commit message.
+  --amend	Overwrites the previous commit. If files have been added to the staging area, then those files are added as part of the same commit.
+
+git remote	Lists shortnames of each remote server for the repo. ("origin" is the server from which the repo is cloned)
+  -v					Shows URLs for each of the remote servers
+  --add [shortname] [url]		Adds a remote server with the name [shortname] and the specified URL
+  --show [shortname]			Lists the URL for the remote repo, as well as the tracking branch information
+  --rename [orig-name] [new-name]	Renames a remote server
+  rm [shortname]			Removes the remote server
+
+git fetch [remote-name]		Get data from remote projects (Note: Does not automatically merge or modify your repo. You need to merge it manually)
+
+git pull	Fetch data from the clone source, and merges into your branch.
+
+git push [remote-name] [branch-name]	Pushes your local branch [branch-name] to the remote server [remote-name]. (Note: If someone else has pushed to the remote before you, then you need to pull and merge their work into your branch first before trying to push it back up)
+
+git config	Changes the config file of the Git repos.
+  --global	Changes the local user's config file
+  core.name	Edit the <name> field of the config
+  core.email	Edit the <email> field of the config
+
+git rm		Remove a file from both the local directory and the git repo.
+  -f		Force remove a file, even if it has uncommitted changes.
+
+git log		Get summary of all changes made to date, in reverse chronological order
+  -p		Shows the diff introduced in each commit
+  -2		Limits the output to only the last two entries
+  --word-diff	Compares word-to-word instead of line-to-line
+  -U1		Reduce standard 3-line context to 1-line context
+  --stat	For each commit, shows a summary of changes to each file
+  --pretty=	Changes format of output
+	oneline		Each commit on a single line (useful for analyzing a large number of commits)
+	short
+	full
+	fuller
+	format		Allows you to specify the exact format of the log. Useful if using machine parsing (check doc for formatting options)
+  --graph	If you use the oneline format, this will add an ASCII graph to visualize changes
+  --relative-date  Displays date relative to current time (e.g. - "Two weeks ago") instead of absolute date format
+  --abbrev-commit  Shows only the first few characters of the SHA-1 checksum instead of all 40 characters
+  --oneline	A convenience option for --pretty=oneline --abbrev-commit
+  --since=	Time-limiting option (use a specific date, eg "2008-01-15", or relative date, eg "2 years 1 day 3 minutes ago")
+  --until=	Time-limiting option
+
+gitk		A GUI for visualizing git log data
+
+git reset HEAD <filename>	Unstages a file in the staging area. Still remains modified.
+
+git checkout -- <filename>	Removes  modifications to a file. Basically reclones the file from the repo.
